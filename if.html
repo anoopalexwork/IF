@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>Bard's College</title>
     <style></style>
-    <script src=""></script>
+	<script src="Guild.js"></script>
+	<script src="Village.js"></script>	
   </head>
+
   <body>
     <!-- page content -->
 	<div id="loc" style="text-align:center">Start</div>
@@ -14,95 +16,10 @@
 	</div>
 	<div id="choose">
 	</div>
-<script>
-	tag = "";
-	guild = -1;
-	village = -1;
-	myroom= -1;
-	locwas = "start";
-	story = document.getElementById("story");
-	choose = document.getElementById("choose");
-	
-	
-	
-	//Add HTML text to div story
-	function add(x) { story.innerHTML += x+"<br>"; }
-	//Display button with text x and onclick string f, in div choose
-	function pick(x,f) { choose.innerHTML += "<button onclick=' chose(this);"+f+"'>"+x+"</button><br>"; }
-	//Convert element x text to div with green text, and clear choose div
-	function chose(x) { 
-						add("<br><div style='color:green'>"+ x.innerText +"</div><br><br>");
-						choose.innerHTML ="";
-	}
-	//Add tag x
-	function set(x) { tag+=x+" "; }
-	//If found x in tag var, return true else false
-	function have(x) { if (tag.search(x) >= 0) return true; else return false; }
-	//Del tag x from tag, display err if x not found
-	function del(x) { 
-		chg = tag.replace(x+" ","");
-		if (chg == tag) {
-			add("<br>ERR:" + x +  " not found!");
-			
-		}
-		tag = chg;
-	}
-	
-	function Village(x) {
-		if (x==null) village++; else village=x;
-		
-		if (village==0) {
-			set("goVillage");
-			add("I leave the gate and walk away down a nearby dirt road. Soon, I hear the sounds of a small, nearby village. It is bustling with activity. Plainly dressed people walk to and fro. Women carry geese and fruits as they move amongst the shacks. Men carry rocks or large sack of grain and dung. The inn looks inviting with the smell of ale and wine.....but there are also mercs carrying swords and axes.<br>");
-				pick("Upon entering the inn....","Village()");
-				pick("I return to the Guild", "Guild()");
-		}
-		if (village==1) {
-			add("I get drunk.<br>");
-			pick("Return to Guild","Guild()");
-			pick("Make out with barmaid","Village()");
-		}
-		if (village==2) {
-			add("Me and Milly the barmaid flirt for a bit.");
-			set("flirt");
-			pick("Then, I return to the Guild.","Guild()");
-		}
-	
-	}
-	
-	function Guild(x) {
-		if (x==null) guild++; else guild=x;
-	
-		 if (guild==0) { 
-			add("A sign looms up large on the side. Upon it lies a painting of three faceless jesters on it. One is kicking the rump of the second who is pushing a pie into the face of the third who is holding a lute. Underneath them, lie the words Bard's Guild. I am finally here. And no longer certain if I want to be.<br> I had first seen a bard, at age 6, after Lord Whitwere celebrated the birth of his first child in our village of Mayflower. At the feast, he had brought his bard, Adam Cutter, from the castle. A man of who was graciously allowed to talk freely of all, including the lord and his lady.<br>. Adam was dressed in clothes much finer than anyone at our village ever wore. His words were simple but everyone smiled at them. Our village mother, he called 'a sweet face among other sweet faces. Indeed, a fair face leading the sweet puddin\' race'. He sang songs, beautiful ones, both traditional and unknown.");
-				pick("I enter", "Guild(3)");
-				pick("I walk away","Village()");
-			
-			
-		}
-		if (guild==1) {
-			add("Tardy are we? ");
-			if (have("drunk")) add("Got pissed too? ");
-			if (have("flirt")) add("Played with Milly too, I heard. ");
-			add("Get inside you lout!<br>");
-			pick("I flee!","Guild()");
-			pick("I go inside","if (have(\"drunk\")) { del(\"drunk\");} Guild(3);");
-		}
-		if (guild==2) {
-			add("Wake up in a ditch with a raging hangover!");
-		}
-		if (guild==3) {
-			//Converge
-			add("Go to sleep and wake up ready for class.");
-			
-		}
-		
-	}
 
-	//Begin story
-	Guild();
 	
-
+	
+<script src="Bard.js">
 </script>
  </body>
 </html>
