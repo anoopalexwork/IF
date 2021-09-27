@@ -22,14 +22,7 @@ function set(x) { tag+=x+" "; }
 //If found x in tag var, return true else false
 function have(x) { if (tag.search(x) >= 0) return true; else return false; }
 //Del tag x from tag, display err if x not found
-function del(x) { 
-	chg = tag.replace(x+" ","");
-	if (chg == tag) {
-		add("<br>ERR:" + x +  " not found!");
-		
-	}
-	tag = chg;
-}
+function del(x) { if (have(x) ) tag = tag.replace(x+" ",""); else add("<br>ERR:" + x +  " not found!"); }
 
 
 

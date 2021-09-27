@@ -14,7 +14,7 @@ function Guild(x) {
 			if (have("flirt")) add("Played with Milly too, I heard. ");
 			add("Get inside you lout!<br>");
 			pick("I flee!","Guild()");
-			pick("I go inside","if (have(\"drunk\")) { del(\"drunk\");} Guild(3);");
+			pick("I go inside","del(\"drunk\"); Guild(3);");
 		}
 		if (guild==2) {
 			add("Wake up in a ditch with a raging hangover!");

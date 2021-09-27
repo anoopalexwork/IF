@@ -9,6 +9,7 @@ function Village(x) {
 		}
 		if (village==1) {
 			add("I get drunk.<br>");
+			set("drunk");
 			pick("Return to Guild","Guild()");
 			pick("Make out with barmaid","Village()");
 		}
